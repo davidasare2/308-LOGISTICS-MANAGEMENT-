@@ -5,17 +5,17 @@ import java.time.format.DateTimeParseException;
 public class MaintenanceRecord {
     private final String vehicleRegNum;
     private final LocalDate serviceDate;
-    private final String replacedPart;
+    private final String serviceType;
+    private final String replacedParts;
     private final double cost;
 
-    public MaintenanceRecord(String regNum, String date, String part, double cost) {
-        if (regNum == null || regNum.isBlank()) {
-            throw new IllegalArgumentException("Vehicle registration required");
-        }
+    public MaintenanceRecord(String regNum, String date, String serviceType, String parts, double cost) {
+        if (regNum == null || regNum.isBlank()) throw new IllegalArgumentException("Vehicle registration required");
         
         this.vehicleRegNum = regNum;
         this.serviceDate = parseDate(date);
-        this.replacedPart = (part != null && !part.isBlank()) ? part : "General Service";
+        this.serviceType = (serviceType != null && !serviceType.isBlank()) ? serviceType : "Routine";
+        this.replacedParts = (parts != null && !parts.isBlank()) ? parts : "N/A";
         this.cost = Math.max(0, cost);
     }
 
@@ -36,15 +36,13 @@ public class MaintenanceRecord {
     public String getServiceDate() { 
         return serviceDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")); 
     }
-    public String getReplacedPart() { return replacedPart; }
+    public String getServiceType() { return serviceType; }
+    public String getReplacedParts() { return replacedParts; }
     public double getCost() { return cost; }
     
     @Override
     public String toString() {
-        return String.format("Maintenance Record for %s\nDate: %s | Part: %s | Cost: GHS %,.2f",
-                vehicleRegNum,
-                getServiceDate(),
-                replacedPart,
-                cost);
+        return String.format("%s | %s | Parts: %s | Cost: GHS %,.2f",
+                getServiceDate(), serviceType, replacedParts, cost);
     }
 }
