@@ -1,5 +1,9 @@
+package src.Managers;
 import java.util.ArrayList;
 import java.util.List;
+
+import src.model.MaintenanceRecord;
+import src.model.Vehicle;
 
 public class MaintenanceManager {
     private final List<Vehicle> maintenanceHeap;

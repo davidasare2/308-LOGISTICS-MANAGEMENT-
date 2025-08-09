@@ -1,3 +1,4 @@
+package src.model;
 public class Delivery {
     private final String packageID;
     private String origin;

@@ -1,5 +1,8 @@
+package src.database;
 import java.io.*;
 import java.util.List;
+import src.model.Driver;
+import src.model.Vehicle;
 
 public class FileStorage {
     public static void saveVehicles(List<Vehicle> vehicles, String filename) throws IOException {

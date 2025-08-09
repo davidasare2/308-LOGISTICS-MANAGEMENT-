@@ -1,5 +1,8 @@
+package utils;
 import java.util.ArrayList;
 import java.util.List;
+import src.model.Driver;
+import src.model.Vehicle;
 
 public class SortingAlgorithms {
     public static void insertionSortByFuel(List<Vehicle> vehicles) {

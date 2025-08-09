@@ -1,3 +1,4 @@
+package src.model;
 public class Driver {
     private final String driverID;
     private final String name;
